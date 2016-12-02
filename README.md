@@ -79,5 +79,5 @@ Yes please! See the [CONTRIBUTING](https://github.com/uxcore/uxcore/blob/master/
 |leftTitle|string|optional|'未选中的'|左侧标题|
 |rightTitle|string|optional|'已选中的'|右侧标题|
 
-* 其它props请参考[FormField通用配置](http://uxcore.coding.me/components/form/#formfield-专属配置)
+* more props: [FormField](http://uxcore.coding.me/components/form/#formfield-专属配置)
 

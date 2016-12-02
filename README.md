@@ -73,7 +73,6 @@ Yes please! See the [CONTRIBUTING](https://github.com/uxcore/uxcore/blob/master/
 |参数|类型|必需|默认值|说明|
 |---|----|---|----|---|
 |height|number|optional|220|transfer高度|
-|disabled|boolean|optional|false|是否启用 disable 模式|
 |showSearch|boolean|optional|true|是否显示搜索条|
 |searchPlaceholder|string|optional|定位输入内容||
 |leftTitle|string|optional|'未选中的'|左侧标题|

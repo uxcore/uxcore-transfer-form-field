@@ -139,8 +139,8 @@ class Demo extends React.Component {
     return (
       <TransferFormField
         jsxlabel="穿梭框"
+        jsxdisabled={false}
         value={mockData}
-        disabled={false}
         showSearch
         standalone
         searchPlaceholder="请输入"

@@ -29,7 +29,7 @@ class TransferFormField extends FormField {
     const me = this;
     const arr = [];
     const {
-      height, disabled, showSearch, searchPlaceholder, leftTitle, rightTitle,
+      height, jsxdisabled, showSearch, searchPlaceholder, leftTitle, rightTitle,
     } = this.props;
     arr.push(
       <Transfer
@@ -37,7 +37,7 @@ class TransferFormField extends FormField {
         height={height}
         data={this.state.value}
         onChange={me.handleChange.bind(me)}
-        disabled={disabled}
+        disabled={jsxdisabled}
         showSearch={showSearch}
         searchPlaceholder={searchPlaceholder}
         leftTitle={leftTitle}

@@ -45,7 +45,7 @@
  "dependencies": {
   "classnames": "^2.1.2",
   "object-assign": "^4.1.0",
-  "uxcore-form": "^1.8.8",
+  "uxcore-const": "0.0.2",
   "uxcore-form-field": "^0.2.3",
   "uxcore-transfer": "^0.3.0"
  },

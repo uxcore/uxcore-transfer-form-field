@@ -9,9 +9,7 @@ import React from 'react';
 import Transfer from 'uxcore-transfer';
 import assign from 'object-assign';
 import FormField from 'uxcore-form-field';
-import Form from 'uxcore-form';
-
-const {Constants} = Form;
+import Constants from 'uxcore-const';
 
 class TransferFormField extends FormField {
 
@@ -24,35 +22,31 @@ class TransferFormField extends FormField {
   }
 
   handleChange(data) {
-    let me = this;
     const newValue = data.chosen.concat(data.unChosen);
     this.handleDataChange(newValue);
   }
 
   renderField() {
     const me = this;
-    let {
+    const {
       height, jsxdisabled, showSearch, searchPlaceholder, leftTitle,
-      rightTitle,mode
+      rightTitle,
     } = this.props;
-    if (mode === Constants.MODE.EDIT) {
-        jsxdisabled=false;
-    }else {
-        jsxdisabled=true;
-    }
 
-     return [<Transfer
-         key={`transfer-${new Date().getTime()}`}
-         height={height}
-         data={this.state.value}
-         onChange={me.handleChange.bind(me)}
-         disabled={jsxdisabled}
-         showSearch={!jsxdisabled}
-         searchPlaceholder={searchPlaceholder}
-         leftTitle={leftTitle}
-         rightTitle={rightTitle}
-       />
-     ];
+    const mode = me.props.jsxmode || me.props.mode;
+
+    return (
+      <Transfer
+        height={height}
+        data={this.state.value}
+        onChange={me.handleChange.bind(me)}
+        disabled={mode === Constants.MODE.VIEW ? true : jsxdisabled}
+        showSearch={mode === Constants.MODE.VIEW ? false : showSearch}
+        searchPlaceholder={searchPlaceholder}
+        leftTitle={leftTitle}
+        rightTitle={rightTitle}
+      />
+    );
   }
 }
 

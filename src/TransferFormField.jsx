@@ -35,12 +35,11 @@ class TransferFormField extends FormField {
       height, jsxdisabled, showSearch, searchPlaceholder, leftTitle,
       rightTitle,mode
     } = this.props;
-    console.info("renderField mode:",mode);
-     if (mode === Constants.MODE.EDIT) {
+    if (mode === Constants.MODE.EDIT) {
         jsxdisabled=false;
-     }else {
+    }else {
         jsxdisabled=true;
-     }
+    }
 
      return [<Transfer
          key={`transfer-${new Date().getTime()}`}

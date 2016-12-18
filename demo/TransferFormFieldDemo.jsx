@@ -8,21 +8,12 @@
 
 import React from 'react';
 import Form from 'uxcore-form';
+const FormRow = require('uxcore-form-row');
 import Button from 'uxcore-button';
 import TransferFormField from '../src';
 
-const { OtherFormField: Other } = Form;
+const { ButtonGroupFormField,Constants} = Form;
 
-// const mockData = [];
-// const len = (Math.random() * 10) + 10;
-// for (let i = 0; i < len; i++) {
-//   mockData.push({
-//     name: `内容${i + 1}`,
-//     value: (i + 1),
-//     description: `内容${i + 1}的描述`,
-//     chosen: Math.random() * 2 > 1,
-//   });
-// }
 
 const mockData = [
   {
@@ -116,13 +107,32 @@ class Demo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      values: {},
+      jsxvalues: {
+         transfer: mockData
+      },
+      mode: Constants.MODE.VIEW
     };
   }
 
   handleClick() {
     const me = this;
-    alert(JSON.stringify(me.form.getValues()));
+    console.info(this.refs.form.getValues());
+    //alert(JSON.stringify(me.form.getValues()));
+  }
+
+  toView() {
+    const me = this;
+    console.info('toView');
+    this.setState({
+       mode: Constants.MODE.VIEW
+    })
+  }
+
+  toEdit() {
+    const me = this;
+    this.setState({
+       mode: Constants.MODE.EDIT
+    })
   }
 
   handleChange(data) {
@@ -137,17 +147,28 @@ class Demo extends React.Component {
   render() {
     const me = this;
     return (
-      <TransferFormField
-        jsxlabel="穿梭框"
-        jsxdisabled={false}
-        value={mockData}
-        showSearch
-        standalone
-        searchPlaceholder="请输入"
-        leftTitle="未选中"
-        rightTitle="已选中"
-        handleDataChange={me.handleChange.bind(this)}
-      />
+    <Form
+      jsxvalues={me.state.jsxvalues}
+      jsxmode={me.state.mode}
+      ref="form"
+    >
+        <FormRow>
+          <TransferFormField
+            jsxname='transfer'
+            jsxlabel="穿梭框1"
+            jsxdisabled={false}
+            showSearch
+            standalone
+            searchPlaceholder="请输入"
+            leftTitle="未选中"
+            rightTitle="已选中"
+          />
+        </FormRow>
+        <ButtonGroupFormField>
+            <Button size="medium" onClick={me.toView.bind(me)}>view Mode</Button>
+            <Button size="medium" onClick={me.toEdit.bind(me)}>edit Mode</Button>
+          </ButtonGroupFormField>
+      </Form>
     );
   }
 }

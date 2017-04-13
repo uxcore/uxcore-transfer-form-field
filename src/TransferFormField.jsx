@@ -53,7 +53,6 @@ class TransferFormField extends FormField {
 
 TransferFormField.defaultProps = assign({}, FormField.defaultProps, {
   height: 220,
-  checkAllText: '全选',
 });
 
 TransferFormField.propTypes = assign({}, FormField.propTypes, {

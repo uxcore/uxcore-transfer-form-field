@@ -12,7 +12,7 @@ const FormRow = require('uxcore-form-row');
 import Button from 'uxcore-button';
 import TransferFormField from '../src';
 
-const { ButtonGroupFormField,Constants} = Form;
+const { ButtonGroupFormField, Constants } = Form;
 
 
 const mockData = [
@@ -108,31 +108,30 @@ class Demo extends React.Component {
     super(props);
     this.state = {
       jsxvalues: {
-         transfer: mockData
+        transfer: mockData,
       },
-      mode: Constants.MODE.VIEW
+      mode: Constants.MODE.VIEW,
     };
   }
 
   handleClick() {
     const me = this;
     console.info(this.refs.form.getValues());
-    //alert(JSON.stringify(me.form.getValues()));
+    // alert(JSON.stringify(me.form.getValues()));
   }
 
   toView() {
     const me = this;
     console.info('toView');
     this.setState({
-       mode: Constants.MODE.VIEW
-    })
+      mode: Constants.MODE.VIEW,
+    });
   }
 
   toEdit() {
-    const me = this;
     this.setState({
-       mode: Constants.MODE.EDIT
-    })
+      mode: Constants.MODE.EDIT,
+    });
   }
 
   handleChange(data) {
@@ -147,14 +146,14 @@ class Demo extends React.Component {
   render() {
     const me = this;
     return (
-    <Form
-      jsxvalues={me.state.jsxvalues}
-      jsxmode={me.state.mode}
-      ref="form"
-    >
+      <Form
+        jsxvalues={me.state.jsxvalues}
+        jsxmode={me.state.mode}
+        ref="form"
+      >
         <FormRow>
           <TransferFormField
-            jsxname='transfer'
+            jsxname="transfer"
             jsxlabel="穿梭框1"
             jsxdisabled={false}
             showSearch
@@ -162,12 +161,13 @@ class Demo extends React.Component {
             searchPlaceholder="请输入"
             leftTitle="未选中"
             rightTitle="已选中"
+            checkAllText="全选"
           />
         </FormRow>
         <ButtonGroupFormField>
-            <Button size="medium" onClick={me.toView.bind(me)}>view Mode</Button>
-            <Button size="medium" onClick={me.toEdit.bind(me)}>edit Mode</Button>
-          </ButtonGroupFormField>
+          <Button size="medium" onClick={me.toView.bind(me)}>view Mode</Button>
+          <Button size="medium" onClick={me.toEdit.bind(me)}>edit Mode</Button>
+        </ButtonGroupFormField>
       </Form>
     );
   }

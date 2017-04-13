@@ -30,7 +30,7 @@ class TransferFormField extends FormField {
     const me = this;
     const {
       height, jsxdisabled, showSearch, searchPlaceholder, leftTitle,
-      rightTitle,
+      rightTitle, checkAllText,
     } = this.props;
 
     const mode = me.props.jsxmode || me.props.mode;
@@ -45,6 +45,7 @@ class TransferFormField extends FormField {
         searchPlaceholder={searchPlaceholder}
         leftTitle={leftTitle}
         rightTitle={rightTitle}
+        checkAllText={checkAllText}
       />
     );
   }
@@ -57,6 +58,7 @@ TransferFormField.defaultProps = assign({}, FormField.defaultProps, {
 TransferFormField.propTypes = assign({}, FormField.propTypes, {
   height: React.PropTypes.number,
   value: React.PropTypes.array,
+  checkAllText: React.PropTypes.string,
 });
 
 TransferFormField.displayName = 'TransferFormField';

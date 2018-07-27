@@ -10,9 +10,9 @@ import Transfer from 'uxcore-transfer';
 import assign from 'object-assign';
 import FormField from 'uxcore-form-field';
 import Constants from 'uxcore-const';
+import PropTypes from 'prop-types';
 
 class TransferFormField extends FormField {
-
   addSpecificClass() {
     const me = this;
     if (me.props.jsxprefixCls === 'kuma-uxform-field') {
@@ -56,9 +56,9 @@ TransferFormField.defaultProps = assign({}, FormField.defaultProps, {
 });
 
 TransferFormField.propTypes = assign({}, FormField.propTypes, {
-  height: React.PropTypes.number,
-  value: React.PropTypes.array,
-  checkAllText: React.PropTypes.string,
+  height: PropTypes.number,
+  value: PropTypes.array,
+  checkAllText: PropTypes.string,
 });
 
 TransferFormField.displayName = 'TransferFormField';

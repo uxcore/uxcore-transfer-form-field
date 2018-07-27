@@ -8,12 +8,11 @@
 
 import React from 'react';
 import Form from 'uxcore-form';
-const FormRow = require('uxcore-form-row');
 import Button from 'uxcore-button';
+import FormRow from 'uxcore-form-row';
 import TransferFormField from '../src';
 
 const { ButtonGroupFormField, Constants } = Form;
-
 
 const mockData = [
   {
@@ -103,7 +102,6 @@ const mockData = [
 ];
 
 class Demo extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -121,7 +119,6 @@ class Demo extends React.Component {
   }
 
   toView() {
-    const me = this;
     console.info('toView');
     this.setState({
       mode: Constants.MODE.VIEW,
@@ -140,7 +137,7 @@ class Demo extends React.Component {
 
   handleReset() {
     const me = this;
-    me.refs.form.resetValues();
+    me.form.resetValues();
   }
 
   render() {
@@ -149,7 +146,7 @@ class Demo extends React.Component {
       <Form
         jsxvalues={me.state.jsxvalues}
         jsxmode={me.state.mode}
-        ref="form"
+        ref={(c) => { this.form = c; }}
       >
         <FormRow>
           <TransferFormField
@@ -165,8 +162,12 @@ class Demo extends React.Component {
           />
         </FormRow>
         <ButtonGroupFormField>
-          <Button size="medium" onClick={me.toView.bind(me)}>view Mode</Button>
-          <Button size="medium" onClick={me.toEdit.bind(me)}>edit Mode</Button>
+          <Button size="medium" onClick={me.toView.bind(me)}>
+            view Mode
+          </Button>
+          <Button size="medium" onClick={me.toEdit.bind(me)}>
+            edit Mode
+          </Button>
         </ButtonGroupFormField>
       </Form>
     );

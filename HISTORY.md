@@ -1,5 +1,9 @@
 # history
 
+## 0.2.0
+
+* `CHANGED` fit React16 
+
 ## 0.1.3 
  `CHANGED` pass `checkAllText` to `Transfer`
 

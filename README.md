@@ -77,6 +77,7 @@ Yes please! See the [CONTRIBUTING](https://github.com/uxcore/uxcore/blob/master/
 |searchPlaceholder|string|optional|定位输入内容||
 |leftTitle|string|optional|'未选中的'|左侧标题|
 |rightTitle|string|optional|'已选中的'|右侧标题|
+|isAsc|boolean|optional|false|是否让新穿梭的值排在尾部|
 
 * more props: [FormField](http://uxcore.coding.me/components/form/#formfield-专属配置)
 

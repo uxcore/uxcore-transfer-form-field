@@ -159,6 +159,7 @@ class Demo extends React.Component {
             leftTitle="未选中"
             rightTitle="已选中"
             checkAllText="全选"
+            isAsc
           />
         </FormRow>
         <ButtonGroupFormField>
